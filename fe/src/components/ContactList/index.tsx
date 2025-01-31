@@ -1,7 +1,8 @@
 import { Container, StyledLine, Orderer } from "./styles";
-import ContactComponent, { Contact } from "../Contact";
-import arrowUp from "../../assets/images/arrowUp.svg";
+import ContactComponentCard, { Contact } from "../ContactCard";
+import arrow from "../../assets/images/arrow.svg";
 import { useState } from "react";
+import { Link } from "react-router";
 
 export default function ContactList() {
     const miranha = {
@@ -21,7 +22,7 @@ export default function ContactList() {
     const toggleOrdering = () => {
     contacts = contacts.sort((a, b) => !ascending 
             ? a.name.localeCompare(b.name)
-            : b.name.localeCompare(a.name))
+            : b.name.localeCompare(a.name));
 
         setAscending(x => !x);
     };
@@ -29,18 +30,18 @@ export default function ContactList() {
         <>
             <Container>
                 <span>3 Contatos</span>
-                <a href="#">Novo Contato</a>
+                <Link to="new-contact">Novo Contato</Link>
             </Container>
             <StyledLine />
             <Orderer onClick={toggleOrdering}>
                 Name
                 <img 
-                    src={arrowUp} 
+                    src={arrow} 
                     alt="arrow up" 
                     className={(ascending ? "orderer-clicked" : "")} 
                 />
             </Orderer>
-            {contacts.map(c => <ContactComponent key={c.id} contact={c} />)}
+            {contacts.map(c => <ContactComponentCard key={c.id} contact={c} />)}
         </>
 
     );

@@ -1,5 +1,6 @@
-import IconButton from "../IconButton";
-import { Container, ContactHeader, ContactInfo, Buttons } from "./styles"
+import { IconLink } from "../Icons/IconLink";
+import { IconButton } from "../Icons/IconButton";
+import { Container, ContactHeader, ContactInfo, Buttons } from "./styles";
 import deleteIcon from "../../assets/images/delete.svg";
 import editIcon from "../../assets/images/edit.svg";
 
@@ -11,26 +12,24 @@ export interface Contact {
     source: string;
 };
 
-export default function ContactComponent({ contact }: { contact: Contact }) {
+export default function ContactComponentCard({ contact }: { contact: Contact }) {
     return (
         <>
             <Container>
                 <div>
                     <ContactHeader>
-                        <span>{contact.name}</span>
-                        <span className="contact-source">
-                            {contact.source}
-                        </span>
+                        <strong>{contact.name}</strong>
+                        <strong className="contact-source">{contact.source}</strong>
                     </ContactHeader>
                     <ContactInfo>
-                        <text>{contact.email}</text>
+                        <small>{contact.email}</small>
                     </ContactInfo>
                     <ContactInfo>
-                        <text>{contact.phone}</text>
+                        <small>{contact.phone}</small>
                     </ContactInfo>
                 </div>
                 <Buttons>
-                    <IconButton src={editIcon} alt="edit Button" />
+                    <IconLink src={editIcon} alt="edit button" to={`edit/${contact.id}`} contact={contact} />
                     <IconButton src={deleteIcon} alt="delete Button" />
                 </Buttons>
             </Container>

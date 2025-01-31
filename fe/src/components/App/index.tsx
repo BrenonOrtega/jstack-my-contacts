@@ -1,10 +1,9 @@
-//import GlobalStyle from "./assets/styles/GlobalStyle";
-import { ThemeProvider } from "styled-components";
 import DefaultTheme from "../../assets/styles/themes/DefaultTheme";
 import GlobalStyles from "../../assets/styles/GlobalStyle";
 import Header from "../Header";
+import Routes from "../../routes";
 import { Container } from "./styles";
-import ContactList from "../ContactList";
+import { ThemeProvider } from "styled-components";
 
 export default function App() {
   return (
@@ -12,7 +11,7 @@ export default function App() {
       <GlobalStyles />
       <Container>
         <Header />
-        <ContactList />
+        <Routes />
       </Container>
     </ThemeProvider>
   );
