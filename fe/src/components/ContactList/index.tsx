@@ -1,5 +1,5 @@
 import { Container, StyledLine, Orderer } from "./styles";
-import ContactComponentCard, { Contact } from "../ContactCard";
+import ContactCard, { Contact } from "../ContactCard";
 import arrow from "../../assets/images/arrow.svg";
 import { useState } from "react";
 import { Link } from "react-router";
@@ -41,7 +41,7 @@ export default function ContactList() {
                     className={(ascending ? "orderer-clicked" : "")} 
                 />
             </Orderer>
-            {contacts.map(c => <ContactComponentCard key={c.id} contact={c} />)}
+            {contacts.map(c => <ContactCard key={c.id} contact={c} />)}
         </>
 
     );
