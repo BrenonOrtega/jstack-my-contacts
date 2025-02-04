@@ -7,21 +7,22 @@ import FormGroup from "../../components/FormGroup";
 
 interface ContactFormProps {
     contact?: Contact;
+    buttonLabel: string;
 };
 
-export default function ContactForm({ contact }: ContactFormProps) {
+export default function ContactForm({ contact, buttonLabel }: ContactFormProps) {
     const { name, email, phone, source } = contact || {};
     const invalid = true;
     return (
         <Container>
             <FormGroup>
-                <Input placeholder="Nome" type="text" defaultValue={name} />
+                <Input placeholder="Nome" type="text" defaultValue={name}  />
             </FormGroup>
-            <FormGroup>
+            <FormGroup error="Formato de email invalido.">
                 <Input placeholder="Email" type="email" defaultValue={email} />
             </FormGroup>
             <FormGroup>
-                <Input placeholder="Telefone" type="tel" defaultValue={phone} />
+                <Input placeholder="Telefone" type="tel" defaultValue={phone} error/>
             </FormGroup>
             <FormGroup>
                 <Select defaultValue={source}>
@@ -31,7 +32,7 @@ export default function ContactForm({ contact }: ContactFormProps) {
                     <option value="twitter">Twitter</option>
                 </Select>
             </FormGroup>
-            <Button disabled={invalid}>Cadastrar</Button>
+            <Button disabled={invalid}>{buttonLabel}</Button>
         </Container >
     );
 }

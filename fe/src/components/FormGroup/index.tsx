@@ -9,7 +9,7 @@ const FormGroup: React.FC<FormGroupProps> = ({ children, error }) => {
     return (
         <Container>
             {children}
-            {error && <span className="error">{error}</span>}
+            {error && <small>{error}</small>} 
         </Container>
     );
 };

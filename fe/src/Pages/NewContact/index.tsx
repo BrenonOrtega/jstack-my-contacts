@@ -6,7 +6,7 @@ export default function NewContact() {
     return (
         <>
             <BackLink/>
-            <ContactForm />
+            <ContactForm buttonLabel="Cadastrar" />
         </>
     );
 }   

@@ -12,7 +12,7 @@ const Button = styled.button<ButtonProps>`
   color: ${({ theme }) => theme.colors.white};
 
   background: ${({ theme, $isDangerous }) =>
-    $isDangerous  ? "red" : theme.colors.primary.main};
+    $isDangerous  ? theme.colors.danger.default : theme.colors.primary.main};
 
   outline: none;
   border: none;
